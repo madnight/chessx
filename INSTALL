@@ -1,0 +1,30 @@
+1. Requirements
+  
+To compile ChessX, you need Qt version 4.8, better is Qt 5.3 or above.
+Reported issue: FICS does not work properly with Qt4
+
+2. Compilation
+
+Compiling the source is simple. Execute:
+  qmake
+and then
+  make
+
+If the compilation is successful you should be able to run ChessX
+executable in bin subdirectory. It is called: chessx on Linux,
+chessx.app on Mac OS, chessx.exe on Windows
+
+3. Problems
+
+You may check your Qt version by running:
+  qmake -v
+
+If you erroneously tried to build with Qt3, be sure to recreate
+makefiles using:
+  qmake -recursive
+  
+4. Debugging
+
+If you want to help debugging ChessX, rebuild with debug option enabled:
+  qmake -recursive -after "CONFIG+=debug"
+  make

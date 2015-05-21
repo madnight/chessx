@@ -1,0 +1,42 @@
+TODO for 0.5 (Next release, technical)
+* Clean up DatabaseInfo class
+
+TODO for 1.0 (Stable PGN-based version)
+* GameView
+	- display custom tags in GameView
+	- make GameView tags configurable (color, font)
+
+TODO for 1.5 (Extended PGN-based version)
+* File browser
+	- recursively find database files
+* Searches
+	- enhanced header search
+	- board search (+variants)
+	- material search
+* BoardView
+	- move animation
+
+TODO for 2.0 (Stable Native-based version)
+* Native database format
+* Game sorting
+* Spellchecking
+* Playing/training against engine
+* Annotation/Blunder check
+* Tournament tables
+* ELO rating calculation
+* ECO Browser
+
+
+TODO - Ideas/Suggestions. Non critical
+* Ideas for database switching.
+	- Database window like Scid
+	- Dockable toolbar with a tool button for each database (My favourite idea)
+	- Tab bar with a tab for each database
+* Format for electronic books
+* Format for exercises, tactics/endgmae training etc.
+* Faster PGN parser
+* Detecting duplicate games
+* Comment search
+* Crosstables
+* Rating graph
+
