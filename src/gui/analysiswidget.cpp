@@ -34,9 +34,17 @@ AnalysisWidget::AnalysisWidget()
     connect(ui.btPin, SIGNAL(clicked(bool)), SLOT(slotPinChanged(bool)));
     
 
-    //shortcut = new QShortcut(Qt::Key_Enter, this);
-    shortcut = new QShortcut(Qt::CTRL + Qt::Key_K, this);
-    connect(shortcut, SIGNAL(activated()), this , SLOT(slotPinChanged()));
+    shortcut = new QShortcut(QKeySequence("Space"), this);
+    shortcut->setAutoRepeat(false);
+    connect(shortcut, SIGNAL(activated()), this , SLOT(forceEngineMove()));
+
+    m_addVariation = new QShortcut(QKeySequence("+"),this);
+    m_addVariation->setAutoRepeat(false);
+    connect(m_addVariation, SIGNAL(activated()), this, SLOT(addEngineVariation())); 
+
+    m_delVariation = new QShortcut(QKeySequence("-"),this);
+    m_delVariation->setAutoRepeat(false);
+    connect(m_delVariation, SIGNAL(activated()), this, SLOT(delEngineVariation())); 
 
     ui.analyzeButton->setFixedHeight(ui.engineList->sizeHint().height());
 
@@ -163,10 +171,37 @@ void AnalysisWidget::slotPinChanged(bool pinned)
     }
 }
 
-void AnalysisWidget::slotPinChanged()
+void AnalysisWidget::forceEngineMove()
 {
-    emit addVariation(m_analyses[0].variation().at(0).toAlgebraic());
+    if(isEngineRunning())
+    {
+        emit addVariation(m_analyses[0].variation().at(0).toAlgebraic());
+    } 
+    else 
+    { 
+        startEngine();
+    }
 }
+
+void AnalysisWidget::addEngineVariation()
+{
+    if (isEngineRunning())
+    {
+        ui.vpcount->setValue(ui.vpcount->value()+1);
+    }
+}
+
+void AnalysisWidget::delEngineVariation()
+{
+    if (isEngineRunning())
+    {
+        if (ui.vpcount->value() > 1)
+        {
+            ui.vpcount->setValue(ui.vpcount->value()-1);
+        }
+    }
+}
+
 
 void AnalysisWidget::slotReconfigure()
 {

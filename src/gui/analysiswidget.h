@@ -79,7 +79,12 @@ private slots:
     void showTablebaseMove(Move move, int score);
     /** The pin button was pressed or released */
     void slotPinChanged(bool);
-    void slotPinChanged();
+    /** Space Key was pressed to force an Engine Move */
+    void forceEngineMove();
+    /** Press + to add Engine Variation */
+    void addEngineVariation();
+    /** Press - to delete Engine Varation */
+    void delEngineVariation();
 
 signals:
     void addVariation(const Analysis& analysis);
@@ -103,6 +108,9 @@ private:
     QString m_tablebaseEvaluation;
     Tablebase* m_tablebase;
     QShortcut *shortcut;
+    QShortcut *m_addVariation;
+    QShortcut *m_delVariation;
+
     int m_moveTime;
     bool m_bUciNewGame;
 
