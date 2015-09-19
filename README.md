@@ -1,3 +1,6 @@
+# ChessX
+[![Build Status](https://travis-ci.org/madnight/chessx.svg?branch=master)](https://travis-ci.org/madnight/chessx)
+
 This is a slighty modded Version of ChessX.
 
 Added 3 Shortcuts:
