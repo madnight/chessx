@@ -1,5 +1,6 @@
 # ChessX
 [![Build Status](https://travis-ci.org/madnight/chessx.svg?branch=master)](https://travis-ci.org/madnight/chessx)
+[![bitHound Overall Score](https://www.bithound.io/github/madnight/chessx/badges/score.svg)](https://www.bithound.io/github/madnight/chessx)
 
 This is a slighty modded Version of ChessX.
 
