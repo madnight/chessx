@@ -4,6 +4,21 @@ dist: trusty
 language:
   - cpp
 
+env:
+  global:
+   # COVERITY_SCAN_TOKEN, created via the "travis encrypt" command using the project repo's public key
+   - secure: "C3wyk4tPfticw0K58T1pFAZ/6ae6hJud2/ZbjHPe+VvzFWT6XtBRcPR+QMIR+2Sfso65MPloizMvcalmHD6kVEicQ1yFHyXJfg3LCVpDCOkCf1zXpWNCyE1CrFuu7YeoDmoWX9SjLhE+Fso9R056yZCpgqbuxeBZL5m9shVu7/RQctS3FbISA5bdlHMbNGP+XfJGl5/MvfatXcluVOxaHb8DfZN/zjo4ogjwg+sR40dBILUfKVDVEl783CIrBERrCJWzBudH1r3mS3JkAT/+Q0oqxW3ds6SZ9ohhBgsMSvvzmhoKdxsdMnISPeOIcB8D0eCCNlPbbebpyLcEijlwRK9Ekb7md7gvi+JIx5kFp6BB5Sa3J4v5D9kXgZgOJI0JuSnFW8kO3xa9uh/EFXMiObzdjhTxY5rOqmiQN0AG8JVQpm7nzq4Asm4FGW8vyFPI79AgMbJgKR907KAPI9+5Wc5ePJvNBrcbLdEXhcgoPEog30gG8SZEfz1LKudllRfHFE7IKrJfa7y0lSw4zgrsVYgbSNgT7ontHs6gcMNWVD9IzrX5VL/za2dW5SQN1UxGYKROXJqwsJiQx2wSFM72if7XBs5B44rh0ZV+IBlcrdjVRLDghHtTVgCszYFLZEKh/kohpQJhFTWovyDAne6gUr5hpovzMj2E2OT8bn+nWhA="
+
+addons:
+  coverity_scan:
+    project:
+      name: "madnight/chessx"
+      description: "Build submitted via Travis CI"
+    notification_email: mail@beuke.org
+    build_command_prepend: "qmake"
+    build_command:   "make -j 4"
+    branch_pattern: coverity_scan
+
 before_install:
  - sudo apt-get update -qq
  - sudo apt-get install -y qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev qt5-default qttools5-dev-tools qtmultimedia5-dev libqt5svg5*
