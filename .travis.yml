@@ -2,12 +2,11 @@ sudo: required
 dist: trusty
 
 language:
-  - cpp
+- cpp
 
 env:
   global:
-   # COVERITY_SCAN_TOKEN, created via the "travis encrypt" command using the project repo's public key
-   - secure: "C3wyk4tPfticw0K58T1pFAZ/6ae6hJud2/ZbjHPe+VvzFWT6XtBRcPR+QMIR+2Sfso65MPloizMvcalmHD6kVEicQ1yFHyXJfg3LCVpDCOkCf1zXpWNCyE1CrFuu7YeoDmoWX9SjLhE+Fso9R056yZCpgqbuxeBZL5m9shVu7/RQctS3FbISA5bdlHMbNGP+XfJGl5/MvfatXcluVOxaHb8DfZN/zjo4ogjwg+sR40dBILUfKVDVEl783CIrBERrCJWzBudH1r3mS3JkAT/+Q0oqxW3ds6SZ9ohhBgsMSvvzmhoKdxsdMnISPeOIcB8D0eCCNlPbbebpyLcEijlwRK9Ekb7md7gvi+JIx5kFp6BB5Sa3J4v5D9kXgZgOJI0JuSnFW8kO3xa9uh/EFXMiObzdjhTxY5rOqmiQN0AG8JVQpm7nzq4Asm4FGW8vyFPI79AgMbJgKR907KAPI9+5Wc5ePJvNBrcbLdEXhcgoPEog30gG8SZEfz1LKudllRfHFE7IKrJfa7y0lSw4zgrsVYgbSNgT7ontHs6gcMNWVD9IzrX5VL/za2dW5SQN1UxGYKROXJqwsJiQx2wSFM72if7XBs5B44rh0ZV+IBlcrdjVRLDghHtTVgCszYFLZEKh/kohpQJhFTWovyDAne6gUr5hpovzMj2E2OT8bn+nWhA="
+  - secure: "OmCtURVfcw98Szm/USLmM2/piWs+QcNZjUhQzJnfPGkTSRGHPtCgJBlTSK1wI5c/apJJpXwh0O3+Tif5Sy3a05Tt8/DGSb++Knq/OCq2PMO+bgQtnPBPlCVOCJzjaFnQGMgwB7sWgG1Y/Tm6SUfv7OylQ0tpSXrolk3If7hfpC5WNFbSyu5HQDyfFcgf5st4T7pA58t5Ol8kGpyYzs7aWNxZqELsGrdC7p0ueAHGZGejQ2joMP8fwwxYpQfcFW+bVOZVJD2YO/vTPlLI10/URND7eenvmf6Az4286R0fXzdtOGrr2fAltLYoX2tyE9Wq+NG7La3PO5KdX1NgLUq+Q5niH6LOL6Ipddbd0lDOCxxs43231h0SMUqsDRLEZYe3OhyHfmJRntTx5Q2Lu4FHBruUjdGKwHhNZHNOs8G57u+2dMKFX1RMrV2En20IJGU0AKkaP8JB1grFTEvUk8vj3g/j8OxEpgzWH/cGZLopbtVnMi3vWSniVRLMK57Htqs0ELc1UPnlJmENfZR8+4JWeTxjgBVD2pNPy6BR80+N6ZoBqIZyNhkDiy4ZxSFznAgg0JiDcJQrfD4owPByt4ee+5eZp6J/RsZN20Ns8VFOAxOpaawI805F1Gp8xB0x+2WF9+RJyMoibvTIoZxAT7xBD7W8i4EdT0GzodnkAg6WxdQ="
 
 addons:
   coverity_scan:
@@ -15,14 +14,15 @@ addons:
       name: "madnight/chessx"
       description: "Build submitted via Travis CI"
     notification_email: mail@beuke.org
-    build_command_prepend: "qmake"
-    build_command:   "make -j 4"
+    build_command_prepend: qmake
+    build_command: make -j 4
     branch_pattern: coverity_scan
 
 before_install:
- - sudo apt-get update -qq
- - sudo apt-get install -y qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev qt5-default qttools5-dev-tools qtmultimedia5-dev libqt5svg5*
+- sudo apt-get update -qq
+- sudo apt-get install -y qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev qt5-default qttools5-dev-tools qtmultimedia5-dev libqt5svg5*
 
 script:
- - qmake
- - make
+- qmake
+- make
+
